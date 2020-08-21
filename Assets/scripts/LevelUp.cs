@@ -85,6 +85,10 @@ public class LevelUp : MonoBehaviour
 
     }
 
+    public void ResetPoints()
+    {
+        totalPoints = 18;
+    }
 
     public void ChooseHuman()
     {

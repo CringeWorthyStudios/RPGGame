@@ -10,6 +10,8 @@ public class MainMenu : MonoBehaviour
 
     public GameObject disableUI;
     public GameObject toggleUI;
+    public GameObject AnyKeyScene;
+    public GameObject AnyKeySceneNext;
     public string LoadScene = "GameScene";
 
     public Toggle fullscreenToggle;
@@ -19,7 +21,7 @@ public class MainMenu : MonoBehaviour
     {
         Debug.Log("Starting Game Main Menu");
 
-        if(!PlayerPrefs.HasKey("fullscreen"))
+        if (!PlayerPrefs.HasKey("fullscreen"))
         {
             PlayerPrefs.SetInt("fullscreen", 0);
             Screen.fullScreen = false;
@@ -27,7 +29,7 @@ public class MainMenu : MonoBehaviour
         }
         else
         {
-            if(PlayerPrefs.GetInt("fullscreen") == 0)
+            if (PlayerPrefs.GetInt("fullscreen") == 0)
             {
                 Screen.fullScreen = false;
             }
@@ -108,7 +110,7 @@ public class MainMenu : MonoBehaviour
     {
         GUI.Box(new Rect(10, 10, 100, 90), "Testing Box");
 
-        if (GUI.Button(new Rect(20,40,80,20), "Press me"))
+        if (GUI.Button(new Rect(20, 40, 80, 20), "Press me"))
         {
             disableUI.SetActive(false);
             Debug.Log("Press me button got pressed");
@@ -125,6 +127,12 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(LoadScene);
     }
 
+    public void MenuLoaded()
+    {
+        AnyKeyScene.SetActive(false);
+        AnyKeySceneNext.SetActive(true);
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -136,6 +144,14 @@ public class MainMenu : MonoBehaviour
             else
             {
                 toggleUI.SetActive(true);
+            }
+        }
+
+        if (AnyKeyScene.activeSelf == true)
+        {
+            if (Input.anyKey)
+            {
+                MenuLoaded();
             }
         }
     }
