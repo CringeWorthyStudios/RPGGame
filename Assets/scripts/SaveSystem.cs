@@ -15,21 +15,21 @@ public class SaveSystem : MonoBehaviour
         //opens the file to be written to
         FileStream stream = new FileStream(path, FileMode.Create);
         //creates the data to be saved
-        PlayerData data = new PlayerData(player);
+        PlayerStats data = new PlayerStats(player);
         
         //writes he data to the file (also converts the data to text)
         formatter.Serialize(stream, data);
 
         stream.Close();
     }
-    public static PlayerData LoadPlayer()
+    public static PlayerStats LoadPlayer()
     {
         string path = Application.dataPath + "/player.meme";
         if(File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.Open);
-            PlayerData data = formatter.Deserialize(stream) as PlayerData;
+            PlayerStats data = formatter.Deserialize(stream) as PlayerStats;
             stream.Close();
             return data;
         }

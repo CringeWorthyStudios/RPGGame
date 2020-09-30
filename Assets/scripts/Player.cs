@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
 
+    public PlayerStats playerStats;
+
     public int level = 3;
-    public int health = 55;
+    public float health = 55;
     //move()
     //i did this for testing
     public void Save()
@@ -15,9 +18,10 @@ public class Player : MonoBehaviour
     }
     public void Load()
     {
-        PlayerData data = SaveSystem.LoadPlayer();
+        //public PlayerStats data;
+        PlayerStats data = SaveSystem.LoadPlayer();
         level = data.level;
-        health = data.health;
+        health = data.maxHealth;
         Vector3 pos = new Vector3(data.position[0],
                                     data.position[1],
                                     data.position[2]);
@@ -41,13 +45,13 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            TakeDamage(20);
+            DealDamage(20);
         }
     }
 
-    void TakeDamage(int damage)
+    void DealDamage(int damage)
     {
-        currentHealth -= damage;
+        playerStats.currentHealth -= damage;
 
         healthBar.SetHealth(currentHealth);
     }
