@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,17 +17,14 @@ public class LevelUp : MonoBehaviour
     public Text totalPointsText;
 
 
-    /*
-    int strDefault;
-    int agiDefault;
-    int dexDefault;
-    int conDefault;
-    int endDefault;
-    int intDefault;
-    int wisDefault;
-    int chaDefault;
-    int lucDefault;
-    */
+    public enum StatNames { Str, Agi, Dex, Con, End, Int, Wis, Cha, Luc };
+
+    public List<int>[] statsDefault = new List<int>[Enum.GetNames(typeof(StatNames)).Length];
+
+
+
+
+
 
     public int strDefault;
     public int agiDefault;
@@ -65,7 +63,24 @@ public class LevelUp : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        for(int i = 0; i < Enum.GetNames(typeof(StatNames)).Length; i++)
+        {
+            statsDefault[i] = new List<int>();
 
+            for(int x = 0; x < 2; x++)
+            {
+                statsDefault[i].Add(UnityEngine.Random.Range(8, 12));
+            }
+
+            statsDefault[i][0] = 10;
+            statsDefault[i][1] = UnityEngine.Random.Range(11, 14);
+        }
+
+        for (int i = 0; i < 9; i++)
+        {
+            Debug.Log(statsDefault[i]);
+        }
+        Debug.Log(Enum.GetNames(typeof(StatNames)).Length);
     }
 
     // Update is called once per frame

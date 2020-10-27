@@ -2834,7 +2834,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &994005841
 Transform:
   m_ObjectHideFlags: 0
@@ -3979,7 +3979,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1198806773}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad144ed57e92b2348b78414a4a00e692, type: 3}
   m_Name: 
@@ -5441,7 +5441,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1930382528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5454,13 +5454,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a023a942a4610441944271cd5fb3b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   controller: {fileID: 1930382529}
   cam: {fileID: 481684015}
-  speed: 6
-  gravity: -9.81
-  jumpHeight: 1
-  playerVelocity: {x: 0, y: 0, z: 0}
   turnSmoothTime: 0.1
+  gravity: -9.81
+  playerVelocity: {x: 0, y: 0, z: 0}
 --- !u!143 &1930382529
 CharacterController:
   m_ObjectHideFlags: 0
@@ -5631,7 +5630,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2049020886}
   - component: {fileID: 2049020888}
-  - component: {fileID: 2049020887}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -5653,14 +5651,6 @@ Transform:
   m_Father: {fileID: 994005841}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!81 &2049020887
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2049020885}
-  m_Enabled: 1
 --- !u!20 &2049020888
 Camera:
   m_ObjectHideFlags: 0
