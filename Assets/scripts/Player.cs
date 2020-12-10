@@ -28,31 +28,61 @@ public class Player : MonoBehaviour
         transform.position = pos;
     }
 
+    /*
 
-    public int maxHealth = 100;
-    public int currentHealth;
+    public float currentHealth;
+    public float currentMana;
+    public float currentStamina;
 
     public HealthBar healthBar;
+    public ManaBar manaBar;
+    public StaminaBar staminaBar;
 
     // Start is called before the first frame update
     void Start()
     {
-        currentHealth = maxHealth;
+        currentHealth = playerStats.maxHealth;
+        currentMana = playerStats.maxMana;
+        currentStamina = playerStats.maxStamina;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Equals))
         {
-            DealDamage(20);
+            DealHealthDamage(20);
+        }
+        if (Input.GetKeyDown(KeyCode.Backspace))
+        {
+            DealManaDamage(30);
+        }
+        if (Input.GetKeyDown(KeyCode.Backslash))
+        {
+            DealStaminaDamage(30);
         }
     }
 
-    void DealDamage(int damage)
+    void DealHealthDamage(int damage)
     {
         playerStats.currentHealth -= damage;
 
         healthBar.SetHealth(currentHealth);
     }
+
+    void DealManaDamage(int damage)
+    {
+        playerStats.currentMana -= damage;
+
+        manaBar.SetMana(currentMana);
+    }
+
+    void DealStaminaDamage(int damage)
+    {
+        playerStats.currentStamina -= damage;
+
+        staminaBar.SetStamina(currentStamina);
+    }
+
+    */
 }

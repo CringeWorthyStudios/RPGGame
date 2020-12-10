@@ -9,6 +9,9 @@ public class PauseMenuUI : MonoBehaviour
 
     public GameObject PauseMenuUI2;
 
+    public GameObject crosshair;
+    public GameObject minimap;
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -28,6 +31,8 @@ public class PauseMenuUI : MonoBehaviour
 
     public void Resume()
     {
+        minimap.SetActive(true);
+        crosshair.SetActive(true);
         PauseMenuUI2.SetActive(false);
         Time.timeScale = 1F;
         gamePaused = false;
@@ -36,6 +41,8 @@ public class PauseMenuUI : MonoBehaviour
 
     public void Pause()
     {
+        minimap.SetActive(false);
+        crosshair.SetActive(false);
         PauseMenuUI2.SetActive(true);
         Time.timeScale = 0f;
         gamePaused = true;

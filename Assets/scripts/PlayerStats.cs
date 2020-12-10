@@ -18,6 +18,7 @@ public class PlayerStats
     public float maxMana = 100;
     public float currentMana = 100;
     public float maxStamina = 100;
+    public float currentStamina = 100;
 
     private float _currentHealth = 100;
     public float CurrentHealth

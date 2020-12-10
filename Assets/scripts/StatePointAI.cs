@@ -55,7 +55,7 @@ public class StatePointAI : MonoBehaviour
 
             if (Vector3.Distance(player.transform.position, transform.position) >= 0 && Vector3.Distance(player.transform.position, transform.position) <= (chasePlayerDistance * 0.3))
             {
-                playerController.TakeDamage(1);
+                playerController.TakeHealthDamage(1);
             }
 
             if (Vector3.Distance(player.transform.position, transform.position) > chasePlayerDistance)
